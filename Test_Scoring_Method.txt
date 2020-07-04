@@ -35,7 +35,7 @@ func scoring(User){
 }
 _____________________________________________________________
 
-Methology:
+Methodology:
 
 Index [ 0, 1, 2, 3] // Position of where the user puts the groups of words
 

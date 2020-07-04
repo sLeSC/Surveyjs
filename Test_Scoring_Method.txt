@@ -1,0 +1,42 @@
+// Pseudo code for the scoring methods
+
+// Saving space by defining each group of questions
+temp1 = "Articulate, Huddle, Role-play";
+temp2 = "Arrange, Blend, Develop";
+temp3 = "Judicious, Diagnostic, Investigative";
+temp4 = "Recipe, Logical, Structure";
+
+// Creating a JSON object after user submits survey quiz
+"User": {
+
+	"question1": [ "Articulate, Huddle, Role-play", "Arrange, Blend, Develop", "Judicious, Diagnostic, Investigative", "Recipe, Logical, Structure" ] 
+	"score": [a,b,c,d]
+
+}
+
+//If able to define a function in JSON? 
+func scoring(User){
+
+//Iterating through the array called Question1 to see the position of each choice. Depending on the location of the choice assign the score. 
+
+	for (i in User.question1) {
+		if (User.question1[0] == temp1){ // Probably could find a more efficent way to do this. Would also need to do this for all of scores indexes. This only does question1[0]
+		User.score[0] = 4;
+		}elif (User.question1[1] == temp1){
+		User.score[0] = 3;
+		}elif (User.question1[2] == temp1){
+		User.score[0] = 2;
+		}else{
+		User.Score[0] = 1;
+		}
+	}
+
+	return(User);
+}
+_____________________________________________________________
+
+Methology:
+
+Index [ 0, 1, 2, 3] // Position of where the user puts the groups of words
+
+Value [ 4, 3, 2, 1] // Assigning a score weight to that position

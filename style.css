@@ -1,0 +1,12 @@
+.sjs-sortablejs-item{ 
+  background-color: #f19436!important;
+  text-align: center!important;
+}
+
+.sjs-sortablejs-result {
+  border: 1px solid rgb(41, 54, 82) !important;
+}
+
+.sjs-sortablejs-source {
+  border: 1px solid rgb(41, 54, 82) !important;
+}

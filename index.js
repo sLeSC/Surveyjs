@@ -1,21 +1,36 @@
+
+
+var defaultThemeColors = Survey
+    .StylesManager
+    .ThemeColors["default"];
+defaultThemeColors["$main-color"] = "#293652";
+defaultThemeColors["$main-hover-color"] = "#f19436";
+defaultThemeColors["$text-color"] = "#293652";
+defaultThemeColors["$header-color"] = "#293652";
+
+defaultThemeColors["$header-background-color"] = "#293652";
+defaultThemeColors["$body-container-background-color"] = "#293652";
+
 Survey
     .StylesManager
-    .applyTheme("modern");
+    .applyTheme("default");
 
 var json = {
     pages: [
         {
             questions: [
+                
                 {
                     type: "html",
-                    html: "You are about to start a learning assessment!. <br/>You have 10 seconds for every page and 25 seconds for the whole survey of 3 questions.<br/>Please click on <b>'Start Quiz'</b> button when you are ready."
+                    title: "Learning Assessment!",
+                    html: "<h1>Learning Assessment!</h1>You are about to start a learning assessment! <br/>This will help determine your learning style.<br/>Please click on the <b>'Next'</b> button when you are ready."
                 }
             ]
         }, {
              questions: [
         {
             "type": "sortablelist",
-            "name": "lifepriority",
+            "name": "question1",
             "title": "What type of learner are you? Order the words that describes you the most. ",
             "isRequired": true,
             "choices": ["Arrange, Blend, Develop", "Recipe, Logical, Structure", "Articulate, Huddle, Role-play", "Judicious, Diagnostic, Investigative"]
@@ -25,7 +40,7 @@ var json = {
             questions: [
                 {
                     type: "radiogroup",
-                    name: "libertyordeath",
+                    name: "question2",
                     title: "What most describes you?'",
                     choicesOrder: "random",
                     choices: [
@@ -39,22 +54,18 @@ var json = {
             questions: [
                 {
                     type: "sortablelist",
-                    name: "magnacarta",
+                    name: "question3",
                     title: "Sort these in order of importance to your learning style",
                     choicesOrder: "random",
                     choices: [
-                        "Hypothesis,Explanitory,Determining", "Vent, Groupthink, Dialog","Standarize, Practical, Tabulate"
+                        "Hypothesis, Explanitory, Determining", "Vent, Groupthink, Dialog","Standarize, Practical, Tabulate","Reconstruct, Integrate, Synthesize"
                     ],
                     
                 }
             ]
         }
-    ],
-    completedHtml: "<h4>Thank you for taking the survey.</h4>"
-
-    
+    ]
 };
-
 
 window.survey = new Survey.Model(json);
 

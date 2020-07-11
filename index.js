@@ -1,5 +1,6 @@
+// Survey structure file for surveyjs.
 
-
+// This controls some styling options for the theme of the survey
 var defaultThemeColors = Survey
     .StylesManager
     .ThemeColors["default"];
@@ -11,6 +12,7 @@ defaultThemeColors["$header-color"] = "#293652";
 defaultThemeColors["$header-background-color"] = "#293652";
 defaultThemeColors["$body-container-background-color"] = "#293652";
 
+// Survey questions
 Survey
     .StylesManager
     .applyTheme("default");
@@ -67,14 +69,24 @@ var json = {
     ]
 };
 
+// Display method for survey
 window.survey = new Survey.Model(json);
 
-survey
-    .onComplete
-    .add(function (result) {
-        document
-            .querySelector('#surveyResult')
-            .textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-    });
+// Server method
+/*
+survey.onComplete.add(function (sender, options) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", " https://surveyjs.io/api/MySurveys/generateAccessKey?accessKey={5926921888df4091a377f661132274db}");
+    xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    xhr.send(JSON.stringify(sender.data));
+});*/
+
+//You should get the Guid for storing survey data in surveyjs.io service storage
+survey.surveyPostId = '06cebbb5-a980-4154-be23-81a79e312bf6';
+//You may call survey.sendResult function as another option.
+function sendDataToServer(survey) {
+  survey.sendResult('10c574fc-692a-4b9c-9294-bf8f2a453372');
+}
+
 
 $("#surveyElement").Survey({model: survey});
